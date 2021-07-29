@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>{{ subtitle }}</h2>
-    <p>{{ text }}</p>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <h1>Welcome to <br>Medico</h1>
+    <button type="button">Get Started</button>
 {% endblock content %}
