@@ -1,6 +1,7 @@
 <!-- Copied from my previous project, may need to make some changes to fit ours -->
 {% extends "layout.html" %}
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
     <div class="content-section">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -41,7 +42,10 @@
                    {{ form.password(class="form-control form-control-lg") }}
                {% endif %}
                <br>
-               {{ form.submit(class="btn btn-outline-info") }}
+               <p>Don't have an account? <a href="/signup">Sign up</a></p>
+                <div class="submit">
+                    {{ form.submit(class="btn btn-outline-primary") }}
+                </div>  
             </fieldset>
         </form>    
     </div>

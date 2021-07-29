@@ -3,7 +3,7 @@ body {
   margin-top: 5rem;
   height: 3000px; /* Used to enable scrolling */
   background-image: linear-gradient(lightblue, darkblue);
-  text-align:center;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,6 +41,9 @@ li a:hover:not(.active) {
   background-color: #9CC4FE;
 }
 
+.active {
+  background-color: #9CC4FE;
+}
 
 .content-section {
   background: #ffffff;
@@ -135,6 +138,7 @@ form.example::after {
   display: table;
 }
 
-/* .content-section {
-  margin-left: auto;
-} */
+.content {
+  max-width: 500px;
+  margin: auto;
+}

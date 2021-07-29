@@ -21,8 +21,8 @@ class ProfileForm(FlaskForm):
     firstName = StringField('First Name', validators=[DataRequired(), Length(min=2, max=25)])
     lastName = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=25)])
     birthDate = DateField('Date of Birth', format='%Y-%m-%d', validators=[DataRequired()])
-    #allergens 
-    #medicalConditions
+    allergies = StringField('Allergies')
+    medicalConditions = StringField('Medical Conditions')
 
 class MedicationsForm(FlaskForm):
     medications = StringField('Medications')

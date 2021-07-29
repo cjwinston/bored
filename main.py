@@ -50,11 +50,11 @@ def search():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data)
+        user = User.query.filter_by(email=form.email.data).first()
         if user:
-            if user.password == form.password:
-                flash('You have successfully logged in!')
-                return redirect(url_for('medications'))
+            if user.password == form.password.data:
+                flash('You have successfully logged in!', 'success')
+                return redirect(url_for('search'))
         else:
             flash('Incorrect email or password. Check your login credentials and try again.')
             return redirect(url_for('login'))
@@ -68,7 +68,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.email.data}!', 'success')
-        return redirect(url_for('medications'))
+        return redirect(url_for('search'))
     return render_template('signup.html', title='Sign Up', form=form)
     
 
