@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField, StringField
 from wtforms import PasswordField, SubmitField, TimeField, IntegerField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange
 
 
 class RegistrationForm(FlaskForm):
@@ -27,8 +27,7 @@ class SearchForm(FlaskForm):
 
 class TriviaForm(FlaskForm):
     number_of_questions = IntegerField("Number of Questions",
-                                       validators=[DataRequired(),
-                                                   Length(min=1, max=10)])
+                                       validators=[NumberRange(min=0, max=10, message='Please select a number')])
     # API call to determine how the list of categories is ordered
     # inorder to assign category values
     category = SelectField('Select Category',
