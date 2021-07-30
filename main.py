@@ -7,7 +7,7 @@ from forms import RegistrationForm, LoginForm, TriviaForm, WatchForm, EventForm
 from flask_login import LoginManager, UserMixin
 from flask_login import login_required, login_user, logout_user
 from trivTest import *
-from movieTVData import getFilmData
+from movieTVData import getFilmData, parseData
 from events import getData, createDict
 
 
@@ -151,9 +151,8 @@ def movietv():
         filmType = form.filmType.data
         trendTpe = form.trendTpe.data
         d = getFilmData(tmdb_apikey, filmType, trendType)
-        
-        ### gonna show the movie or show, genres (if available), and image (using posterpath)
-        ### ex_url: https://image.tmdb.org/t/p/w500/insertposterpathhere.jpg     w500 is the size we'll use
+        dict = parseData(d)
+
             
     return render_template('movietv.html', form=form)
 

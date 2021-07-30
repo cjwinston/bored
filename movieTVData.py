@@ -11,6 +11,7 @@ def getFilmData(apikey, filmType, trendType):
         return r
 
 def parseData(r):
+        url = 'https://image.tmdb.org/t/p/w500/'
         d = r['results']
         dict = {}
         index = 0
@@ -18,17 +19,17 @@ def parseData(r):
             if d[0]['media_type'] == 'movie':
                 dict[index] = {'name': d[index]['original_title'],
                               'overview': d[index]['overview'],
-                              'posterpath': d[index]['poster_path']
+                              'image_url': url + d[index]['poster_path']
                              }
             else:
                 dict[index] = {'name': d[index]['original_name'],
                               'overview': d[index]['overview'],
-                              'posterpath': d[index]['poster_path']
+                              'image_url': url + d[index]['poster_path']
                              }
             index += 1
         return dict
             
-            
+     
 
 def main():
     api_key = '25cd471bedf2ee053df9b1705494367d'
