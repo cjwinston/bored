@@ -20,16 +20,15 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
-class SearchForm(FlaskForm):
-    search = StringField('Enter search')
-    submit = SubmitField('Search')
+class EventForm(FlaskForm):
+    eventType = StringField('Enter the type of event', validators=[DataRequired()])
+    city = StringField('Enter the City', validators=[DataRequired()])
+    search = SubmitField('Search')
 
 
 class TriviaForm(FlaskForm):
     number_of_questions = IntegerField("Number of Questions",
-                                       validators=[NumberRange(min=0, max=10, message='Please select a number')])
-    # API call to determine how the list of categories is ordered
-    # inorder to assign category values
+                                       validators=[NumberRange(min=1, max=10, message='Please select between 1-10')])
     category = SelectField('Select Category',
                            choices=[(0, 'Any'),
                                     (9, 'General Knowledge'),
@@ -61,4 +60,6 @@ class TriviaForm(FlaskForm):
 
 class WatchForm(FlaskForm):
     filmType = SelectField('Select Movie or Show',
-                           choices=[(0, 'Movie'), (1, 'Show')])
+                           choices=[('Movie'), ('Show')])
+    trendType = SelectField("Do you want recommendations based on today's trending list or this week's?",
+                           choices=[('day', 'Today'), ('week','This Week')])

@@ -3,14 +3,18 @@ from flask import session, request
 from flask_behind_proxy import FlaskBehindProxy
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
-from forms import RegistrationForm, LoginForm, TriviaForm, WatchForm
+from forms import RegistrationForm, LoginForm, TriviaForm, WatchForm, EventForm
 from flask_login import LoginManager, UserMixin
 from flask_login import login_required, login_user, logout_user
 from trivTest import *
+from movieTVData import getFilmData
+from events import getData, createDict
 
-# for Discovery API
-discovery_apikey = 'dJICZjQMWJ6ZyTe9gXaTuTqQGETOqQOT'
-discovery_base_url = 'https://app.ticketmaster.com/discovery/v2/'
+
+# test login_info
+#1 email: test@gmail.com, password = 12345
+#2 email: test2@gmail.com, pass = 67890
+
 
 # for TMDB API
 tmdb_apikey = '25cd471bedf2ee053df9b1705494367d'
@@ -63,15 +67,26 @@ def trivia():
         difficulty = form.difficulty.data
         types = form.types.data
         getData(number, category, difficulty, types)
+        # correctly takes in input for if all sections have data, have not tested for 'Any' option
         return redirect("home.html")
     return render_template('trivia.html', subtitle='Trivia Page',
                            form=form)
 
 
-@app.route("/search")
+@app.route("/events")
 @login_required
-def search():
-    return render_template('search.html', subtitle='Enter an event')
+def events():
+    form = EventForm()
+    if form.validate_on_submit():
+        keyword = form.eventType.data
+        city = form.city.data
+        r = getData(keyword, city)
+        d = createDict(r)
+        return render_template('eventsResults.html',
+                               subtitle='Results',
+                               data=d,
+                               )
+    return render_template('events.html', subtitle='Enter an event')
 
 
 # https://flask-login.readthedocs.io/en/latest/#configuring-your-application
@@ -87,9 +102,9 @@ def login():
                 # msg = 'You have successfully logged in!'
                 # return render_template('search.html', msg=msg)
                 flash(f'You have successfully logged in!', 'success')
-                return redirect(url_for('search'))
+                return redirect(url_for('events'))
             else:
-                # msg = 'Incorrect password. 
+                # msg = 'Incorrect password.
                 #       Check your login credentials and try again.'
                 # return render_template('login.html', msg=msg)
                 flash('Incorrect password. Check your login credentials and try again.')
@@ -108,7 +123,7 @@ def logout():
     logout_user()
     # session.pop('logged_in', None)
     flash(f'Sucessfully Logged Out', 'success')
-    return render_template('logout.html')
+    return render_template('login.html')
 
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -134,6 +149,12 @@ def movietv():
     form = WatchForm()
     if form.validate_on_submit():
         filmType = form.filmType.data
+        trendTpe = form.trendTpe.data
+        d = getFilmData(tmdb_apikey, filmType, trendType)
+        
+        ### gonna show the movie or show, genres (if available), and image (using posterpath)
+        ### ex_url: https://image.tmdb.org/t/p/w500/insertposterpathhere.jpg     w500 is the size we'll use
+            
     return render_template('movietv.html', form=form)
 
 # NOTE: NO USERNAME NEEDED

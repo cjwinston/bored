@@ -20,10 +20,19 @@ class BasicTests(unittest.TestCase):
     def test_signup_page(self):
         response = self.app.get('/signup', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-    
-    def test_register_page(self):
-        response = self.app.get('/register', follow_redirects=True)
+        
+    def test_trivia_page(self):
+        response = self.app.get('/trivia', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+
+    def test_trivia_page(self):
+        response = self.app.get('/events', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_trivia_page(self):
+        response = self.app.get('/movietv', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()

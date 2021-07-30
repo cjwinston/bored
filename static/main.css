@@ -15,6 +15,29 @@ h1, h2, h3, h4, h5, h6 {
   /*background-color: linear-gradient(lightblue, darkblue)*/
 }
 
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: lightsalmon;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: lightsalmon}
+
+.button:active {
+  background-color: lightsalmon;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 ul {
   position: fixed;
   top: 0;

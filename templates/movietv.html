@@ -42,9 +42,23 @@
                     {{ form.filmType(class="form-control form-control-lg") }}
                 {% endif %}
         </div>
+                {{ form.trendType.label(class="form-control-label") }}
+                {% if form.trendType.errors %}
+                    {{ form.trendType(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                    {% for error in form.trendType.errors%}
+                        <span>{{error}}</span>
+                    {% endfor %}
+                    </div>
+               {% else %}
+                   {{ form.trendType(class="form-control form-control-lg") }}
+               {% endif %}
             </fieldset>
         </form>
     </div>
+        <form action="home.html" method="get">
+            <a href="/"><button class="button" type="button">View Titles</button></a>
+        </form>
 </section>
 
 {% endblock content %}

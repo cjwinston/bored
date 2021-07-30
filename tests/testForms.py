@@ -16,27 +16,27 @@ class UsersTests(unittest.TestCase):
     #### tests ####
     ###############
 
-    def register(self, username, email, password):
-        return self.app.post('/register',
+    def signup(self, email, password, confirm_password):
+        return self.app.post('/signup',
                             data=dict(email=email,
                                       password=password, 
-                                      confirm_password=password),
+                                      confirm_password=confirm_password),
                             follow_redirects=True)
 
     def test_valid_user_registration(self):
-        response = self.register('test@example.com', 'FlaskIsAwesome')
+        response = self.signup('test@example.com', 'Password', 'Password')
         self.assertEqual(response.status_code, 200)
 
 
     def test_invalid_email_registration(self):
-        response1 = self.register('test2', 'test@example', 'FlaskIsAwesome')
+        response1 = self.signup('test@example', 'Password', 'Password')
         self.assertIn(b'Invalid email address.', response1.data)
-        response2 = self.register('test2', 'testexample.com', 'FlaskIsAwesome')
+        response2 = self.signup('testexample.com', 'Password', 'Password')
         self.assertIn(b'Invalid email address.', response2.data)
 
 
     def test_confirm_password_registration(self):
-        response1 = self.register('test2', 'test@example', 'FlaskIsAwesome','Flask')
+        response1 = self.signup('test@example', 'FlaskIsAwesome','Flask')
         self.assertIn(b'Field must be equal to password.', response1.data)
 
 
