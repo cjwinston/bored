@@ -73,7 +73,7 @@ def trivia():
                            form=form)
 
 
-@app.route("/events")
+@app.route("/events",  methods=['GET', 'POST'])
 @login_required
 def events():
     form = EventForm()
@@ -86,7 +86,7 @@ def events():
                                subtitle='Results',
                                data=d,
                                )
-    return render_template('events.html', subtitle='Enter an event')
+    return render_template('events.html', subtitle='Enter an event', form=form)
 
 
 # https://flask-login.readthedocs.io/en/latest/#configuring-your-application
@@ -99,31 +99,25 @@ def login():
             if user.password == form.password.data:
                 login_user(user)
                 # session['logged_in'] = True
-                # msg = 'You have successfully logged in!'
-                # return render_template('search.html', msg=msg)
-                flash(f'You have successfully logged in!', 'success')
                 return redirect(url_for('events'))
             else:
-                # msg = 'Incorrect password.
-                #       Check your login credentials and try again.'
-                # return render_template('login.html', msg=msg)
                 flash('Incorrect password. Check your login credentials and try again.')
                 return redirect(url_for('login'))
         else:
             # msg = "Sorry. We couldn't find an account with that email. Please check your login credentials and try again."
             # return render_template('login.html', msg=msg)
             flash("Sorry. We couldn't find an account with that email. Please check your login credentials and try again.")
-            return redirect(url_for('login'), form=form)
+            return redirect(url_for('login'))
     return render_template('login.html', form=form)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
     logout_user()
     # session.pop('logged_in', None)
     flash(f'Sucessfully Logged Out', 'success')
-    return render_template('login.html')
+    return redirect(url_for('login'))
 
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -149,11 +143,12 @@ def movietv():
     form = WatchForm()
     if form.validate_on_submit():
         filmType = form.filmType.data
-        trendTpe = form.trendTpe.data
+        trendType = form.trendType.data
         d = getFilmData(tmdb_apikey, filmType, trendType)
         dict = parseData(d)
-
-            
+        return render_template('watchResults.html',
+                                subtitle='Results',
+                                data=d)
     return render_template('movietv.html', form=form)
 
 # NOTE: NO USERNAME NEEDED

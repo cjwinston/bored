@@ -29,10 +29,11 @@ def createDict(response):
                                       'priceMin': embedded['priceRanges'][0]['min'],
                                       'priceMax': embedded['priceRanges'][0]['max']}
 #         print(embedded['priceRanges'][0]['min'])
-    print(eventsDict)
+    #print(eventsDict)
+    return eventsDict
 
-if __name__ == '__main__':
-        main()
+#if __name__ == '__main__':
+        #main()
     
 #     ['events']
 #     name, images, url, dates?? (start, local date & time), price

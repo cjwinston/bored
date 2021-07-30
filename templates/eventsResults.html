@@ -5,7 +5,7 @@
     <p>{{ text }}</p>
     {%for key in data%}
         <div class="organization-card">
-            <h3>{{data[key]['Name']}}</h3>
+            <h3>{{data[key]['name']}}</h3>
             <img src={{data[key]['image']}} alt='Event' class='card-img'>
             <p>Date: {{data[key]['date']}} </p>
             <a href= {{data[key]['url']}} target="_blank">Click Here for more Info</a>
