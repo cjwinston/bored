@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
-    <h1>Welcome to <br>Medico</h1>
-    <button type="button">Get Started</button>
+    <h1>Welcome to <br>BORED</h1>
+    <div id="box1">
+        <p>About Info - add more stuff</p>
+    </div>
+    <br>
+    <form action="signup.html" method="get">
+        <a href="/signup"><button type="button">Get Started</button></a>
+    </form>
+    <div id="box2">
+       <!--carousel/ blocks of games available--> 
+    </div>
 {% endblock content %}
