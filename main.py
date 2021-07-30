@@ -53,7 +53,7 @@ def home():
                            text='This is the home page')
 
 
-@app.route("/trivia")
+@app.route("/trivia",  methods=['GET', 'POST'])
 @login_required
 def trivia():
     form = TriviaForm()
@@ -63,7 +63,7 @@ def trivia():
         difficulty = form.difficulty.data
         types = form.types.data
         getData(number, category, difficulty, types)
-        return redirect()
+        return redirect("home.html")
     return render_template('trivia.html', subtitle='Trivia Page',
                            form=form)
 
@@ -127,10 +127,12 @@ def signup():
     return render_template('signup.html', title='Sign Up', form=form)
 
 
-@app.route("/movietv")
+@app.route("/movietv", methods=['GET', 'POST'])
 @login_required
 def movietv():
     form = WatchForm()
+    if form.validate_on_submit():
+        filmType =
     return render_template('movietv.html', form=form)
 
 # NOTE: NO USERNAME NEEDED
