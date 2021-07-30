@@ -113,7 +113,7 @@ def login():
             # msg = "Sorry. We couldn't find an account with that email. Please check your login credentials and try again."
             # return render_template('login.html', msg=msg)
             flash("Sorry. We couldn't find an account with that email. Please check your login credentials and try again.")
-            return redirect(url_for('login'))
+            return redirect(url_for('login'), form=form)
     return render_template('login.html', form=form)
 
 
