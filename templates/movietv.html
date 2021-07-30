@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content%}
+<head>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        }
+    .trivia{
+        text-align: center;
+    }
+        .forms{
+            /*background-color:lightgoldenrodyellow*/;
+            display: flex;
+            justify-content: center;
+        }
+        .subtitle{        
+        text-align: center;
+        }
+</style>
+</head>
+<section class="movietv">
+<div class = "title">
+    <h1>Get Movie and Show Recommendations Based on What's Trending Today!</h1>
+</div>
+</section>
+
+<section>
+    <div class="forms">
+    <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+        <div class="form-group">
+                {{ form.filmType.label(class="form-control-label") }}
+                {% if form.filmType.errors %}
+                    {{ form.filmType(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                     {% for error in form.filmType.errors%}
+                         <span>{{error}}</span>
+                     {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.filmType(class="form-control form-control-lg") }}
+                {% endif %}
+        </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+
+{% endblock content %}
