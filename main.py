@@ -89,7 +89,8 @@ def login():
                 flash(f'You have successfully logged in!', 'success')
                 return redirect(url_for('search'))
             else:
-                # msg = 'Incorrect password. Check your login credentials and try again.'
+                # msg = 'Incorrect password. 
+                #       Check your login credentials and try again.'
                 # return render_template('login.html', msg=msg)
                 flash('Incorrect password. Check your login credentials and try again.')
                 return redirect(url_for('login'))
@@ -132,7 +133,7 @@ def signup():
 def movietv():
     form = WatchForm()
     if form.validate_on_submit():
-        filmType =
+        filmType = form.filmType.data
     return render_template('movietv.html', form=form)
 
 # NOTE: NO USERNAME NEEDED
