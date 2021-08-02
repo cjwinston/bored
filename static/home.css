@@ -8,18 +8,23 @@ button {
 }
 
 h1 {
-    color: #333;
+    color: white;
+    text-shadow: 2px 2px 3px lightsalmon;
 }
 
 #box1, #box2 {
+    align-content: center;
     background: lightsalmon;
     border-radius: 25px;
-    display: flex;
-    justify-content: center;
+    display: block;
     height: 100px;
-    margin: 10px;
-    align-content: center;
-    text-align: center;
+    margin: auto;
+    margin-top: 20px;
     padding: 10px;
-    width: 700px;
+    text-align: center;
+    width: 95%;
+}
+
+p {
+    color: white;
 }

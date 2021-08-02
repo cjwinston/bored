@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='movietv.css') }}">
 <head>
     <style>
         body{
@@ -20,7 +21,7 @@
 </head>
 <section class="movietv">
 <div class = "title">
-    <h1>Get Movie and Show Recommendations Based on What's Trending Today!</h1>
+    <h1>Get Watch Recommendations Based on What's Trending Now!</h1>
 </div>
 </section>
 
@@ -53,12 +54,13 @@
                {% else %}
                    {{ form.trendType(class="form-control form-control-lg") }}
                {% endif %}
+                <br/>
+                <div class="submit">
+                    {{ form.submit(class="button") }}
+                </div>  
             </fieldset>
         </form>
     </div>
-        <form action="home.html" method="get">
-            <a href="/"><button class="button" type="button">View Titles</button></a>
-        </form>
 </section>
 
 {% endblock content %}

@@ -8,12 +8,12 @@ from flask_login import LoginManager, UserMixin
 from flask_login import login_required, login_user, logout_user
 from trivTest import *
 from movieTVData import getFilmData, parseData
-from events import getData, createDict
+from events import getEventData, createDict
 
 
 # test login_info
-#1 email: test@gmail.com, password = 12345
-#2 email: test2@gmail.com, pass = 67890
+# 1 email: test@gmail.com, password = 12345
+# 2 email: test2@gmail.com, pass = 67890
 
 
 # for TMDB API
@@ -57,7 +57,7 @@ def home():
                            text='This is the home page')
 
 
-@app.route("/trivia",  methods=['GET', 'POST'])
+@app.route("/trivia", methods=['GET', 'POST'])
 @login_required
 def trivia():
     form = TriviaForm()
@@ -66,24 +66,49 @@ def trivia():
         category = form.category.data
         difficulty = form.difficulty.data
         types = form.types.data
-        getData(number, category, difficulty, types)
-        # correctly takes in input for if all sections have data, have not tested for 'Any' option
-        return redirect("home.html")
+        global r
+        r = getData(number, category, difficulty, types)
+        d = createTrivia(r)
+        # correctly takes in input for if all sections have data, have not
+        # tested for 'Any' option
+        return render_template('triviaQues.html', subtitle='Questions', data=d)
     return render_template('trivia.html', subtitle='Trivia Page',
                            form=form)
 
 
-@app.route("/events",  methods=['GET', 'POST'])
+@app.route("/triviaQues", methods=['GET', 'POST'])
+@login_required
+def trivia_questions():
+    if request.method == 'POST':
+        global option
+        option = request.form['options']
+        print(option)
+        return render_template('trivia-ans.html')
+    # return render_template('trivia-ans', option = option)
+
+
+@app.route("/trivia-ans", methods=['GET', 'POST'])
+@login_required
+def trivia_ans():
+        #option = option
+        #print(option)
+        return render_template('trivia-ans.html')
+
+
+@app.route("/events", methods=['GET', 'POST'])
 @login_required
 def events():
     form = EventForm()
     if form.validate_on_submit():
         keyword = form.eventType.data
         city = form.city.data
-        r = getData(keyword, city)
-        d = createDict(r)
+        try:
+            r = getEventData(keyword, city)
+            d = createDict(r)
+        except KeyError:
+            return render_template('eventsError.html')
         return render_template('eventsResults.html',
-                               subtitle='Results',
+                               subtitle='Event Results',
                                data=d,
                                )
     return render_template('events.html', subtitle='Enter an event', form=form)
@@ -104,8 +129,6 @@ def login():
                 flash('Incorrect password. Check your login credentials and try again.')
                 return redirect(url_for('login'))
         else:
-            # msg = "Sorry. We couldn't find an account with that email. Please check your login credentials and try again."
-            # return render_template('login.html', msg=msg)
             flash("Sorry. We couldn't find an account with that email. Please check your login credentials and try again.")
             return redirect(url_for('login'))
     return render_template('login.html', form=form)
@@ -145,23 +168,18 @@ def movietv():
         filmType = form.filmType.data
         trendType = form.trendType.data
         d = getFilmData(tmdb_apikey, filmType, trendType)
-        dict = parseData(d)
+        dic = parseData(d)
         return render_template('watchResults.html',
-                                subtitle='Results',
-                                data=d)
+                               subtitle='Watch Results',
+                               data=dic
+                               )
     return render_template('movietv.html', form=form)
 
-# NOTE: NO USERNAME NEEDED
-# profile page from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars
-# @app.route('/user/<username>')
-# @login_required
-# def user(username):
-#     user = User.query.filter_by(username=username).first_or_404()
-#     posts = [
-#         {'author': user, 'body': 'Test post #1'},
-#         {'author': user, 'body': 'Test post #2'}
-#     ]
-#     return render_template('user.html', user=user, posts=posts)
+
+@app.route("/watchResults", methods=['GET', 'POST'])
+@login_required
+def watch():
+    return render_template('watchResults.html')
 
 
 # this should always be at the end

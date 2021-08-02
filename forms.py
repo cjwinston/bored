@@ -21,14 +21,22 @@ class LoginForm(FlaskForm):
 
 
 class EventForm(FlaskForm):
-    eventType = StringField('Enter the type of event', validators=[DataRequired()])
+    eventType = StringField(
+        'Enter the type of event',
+        validators=[
+            DataRequired()])
     city = StringField('Enter the City', validators=[DataRequired()])
     search = SubmitField('Search')
 
 
 class TriviaForm(FlaskForm):
-    number_of_questions = IntegerField("Number of Questions",
-                                       validators=[NumberRange(min=1, max=10, message='Please select between 1-10')])
+    number_of_questions = IntegerField(
+        "Number of Questions",
+        validators=[
+            NumberRange(
+                min=1,
+                max=10,
+                message='Please select between 1-10')])
     category = SelectField('Select Category',
                            choices=[(0, 'Any'),
                                     (9, 'General Knowledge'),
@@ -47,11 +55,11 @@ class TriviaForm(FlaskForm):
                                     (23, 'History'), (24, 'Politics'),
                                     (25, 'Art'), (26, 'Celebrities'),
                                     (27, 'Animals')])
-    difficulty = SelectField('Select Type',
+    difficulty = SelectField('Select Difficulty',
                              choices=[(0, 'Any'),
                                       ('easy', 'Easy'), ('medium', 'Medium'),
                                       ('hard', 'Hard')])
-    types = SelectField('Select Difficulty',
+    types = SelectField('Select Question Type',
                         choices=[(0, 'Any'),
                                  ('multiple', 'Multiple Choice'),
                                  ('boolean', 'True or False')])
@@ -60,6 +68,9 @@ class TriviaForm(FlaskForm):
 
 class WatchForm(FlaskForm):
     filmType = SelectField('Select Movie or Show',
-                           choices=[('Movie'), ('Show')])
-    trendType = SelectField("Do you want recommendations based on today's trending list or this week's?",
-                           choices=[('day', 'Today'), ('week','This Week')])
+                           choices=[('movie', 'Movie'), ('tv', 'Show')])
+    trendType = SelectField(
+        "Do you want today's trending list or this week's?", choices=[
+            ('day', 'Today'), ('week', 'This Week')])
+    submit = SubmitField('View Titles')
+    

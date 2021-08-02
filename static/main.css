@@ -63,6 +63,9 @@ li a {
   font-size: larger;
 }
 
+nav.shift {
+    z-index: 1;
+}
 /* li a:hover:not(.active) {
 /*   background-color: yellow; */
 /*     color: yellow;
@@ -97,7 +100,7 @@ nav.shift ul li a:after {
   background: lightgoldenrodyellow;
   visibility: none;
   opacity: 0;
-  z-index: -1;
+  z-index: 1;
 }
 
 nav.shift ul li a:hover:after {

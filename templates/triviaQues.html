@@ -1,0 +1,34 @@
+<!-- Copied from my previous project, may need to make some changes to fit ours -->
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='trivia.css') }}">
+<h2>{{ subtitle }}</h2>
+    <p>{{ text }}</p> 
+<form action="/triviaQues" method = 'POST'>
+    {%for key in data%}
+        <div class="organization-trivia-card">
+            <h3>{{data[key]['question']}}</h3>
+            {% if data[key]['type'] == 'multiple' %}
+            <label class="Radio">
+             <input type="radio" name="options" value="correct" style="margin-right: 20px">{{data[key]['options'][0]}}<br>
+                </label>
+            <label class="Radio">
+             <input type="radio" name="options" value="incorrect" style="margin-right: 20px">{{data[key]['options'][1]}}<br>  
+                </label>
+            <label class="Radio">
+             <input type="radio" name="options" value="incorrect" style="margin-right: 20px">{{data[key]['options'][2]}}<br>
+            </label>
+            <label class="Radio">
+             <input type="radio" name="options" value="incorrect" style="margin-right: 20px">{{data[key]['options'][3]}}<br> 
+                </label>
+            {% else %}
+                <p>True</p>
+                <p>False</p>
+            {% endif %}              
+          </div>
+           
+    {%endfor%}
+    <form>
+    <input type="submit" value="submit"/>
+{% endblock content %}

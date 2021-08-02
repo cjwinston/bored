@@ -3,12 +3,14 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
 <h2>{{ subtitle }}</h2>
     <p>{{ text }}</p>
-    {%for key in data%}
-        <div class="organization-card">
-            <h3>{{data[key]['name']}}</h3>
-            <img src={{data[key]['image']}} alt='Event' class='card-img'>
-            <p>Date: {{data[key]['date']}} </p>
-            <a href= {{data[key]['url']}} target="_blank">Click Here for more Info</a>
-          </div>
-    {%endfor%}
+<div class="card-columns">
+    {% for key in data %}
+        <div class="card w-80">
+            <img src={{data[key]['image']}} class="card-img-top" alt="Event">
+            <h5 class="card-title">{{data[key]['name']}}</h5>
+            <p class="card-text">Date: {{data[key]['date']}}</p>
+            <a href={{data[key]['url']}} target="_blank" class="card-link">More Info</a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock content %}
