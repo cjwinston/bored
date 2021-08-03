@@ -29,5 +29,5 @@ def createDict(response):
         eventsDict[embedded['id']] = {'name': embedded['name'],
                                       'url': embedded['url'],
                                       'image': embedded['images'][0]['url'],
-                            'date': embedded['dates']['start']['localDate']}
+                                      'date': embedded['dates']['start']['localDate']}
     return eventsDict

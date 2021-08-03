@@ -11,5 +11,5 @@ flask_behind_proxy==0.1.1
 Flask-Login==0.5.0
 requests
 flask_sqlalchemy
-pytest
+coverage==5.5
 pycodestyle
