@@ -45,6 +45,12 @@ input[type=submit] {
   box-shadow: 0 9px #999;
 }
 
+input[type="radio"] {
+  vertical-align: right;
+   margin: 0px;
+}
+
+
 /*
 .radio {
   display: inline-flex;

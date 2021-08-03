@@ -75,11 +75,12 @@ nav ul li a:before {
 }
 
 nav.shift ul li a {
-  position: relative;
-  z-index: 10;
+  position:relative;
+  z-index: 1;
 }
 nav.shift ul li a:hover {
   color: lightsalmon;
+  text-decoration: none;
 }
 nav.shift ul li a:after {
   display: block;
@@ -96,7 +97,7 @@ nav.shift ul li a:after {
   background: lightgoldenrodyellow;
   visibility: none;
   opacity: 0;
-  z-index: 10;
+  z-index: -1;
 }
 nav.shift ul li a:hover:after {
   opacity: 1;
