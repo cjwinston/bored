@@ -24,10 +24,10 @@
             {% else %}
                 <label for="True">
                 <input type="radio" id = "True" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
-                {{data[key]['options'][0]}}</label><br>
+                True</label><br>
                 <label for="False">
                 <input type="radio" id = "False" value="{{data[key]['options'][1]}}" name="{{key}}" required/>
-                {{data[key]['options'][0]}}</label><br>
+                False</label><br>
             {% endif %} 
          </div>
     {%endfor%}
