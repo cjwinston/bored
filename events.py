@@ -34,7 +34,3 @@ def createDict(response):
 
 # if __name__ == '__main__':
 #        main()
-
-
-#                                       'minPrice': embedded['priceRanges'][0]['min']
-#                                       'maxPrice': embedded['priceRanges'][0]['max']

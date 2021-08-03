@@ -47,6 +47,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: lightsalmon; 
+  z-index: 10;
 }
 /*#FF8B55*/
 li {
@@ -64,12 +65,9 @@ li a {
 }
 
 nav.shift {
-    z-index: 1;
+    z-index: 10;
 }
-/* li a:hover:not(.active) {
-/*   background-color: yellow; */
-/*     color: yellow;
-} */
+
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
@@ -77,14 +75,12 @@ nav ul li a:before {
 }
 
 nav.shift ul li a {
-  position:relative;
-  z-index: 1;
+  position: relative;
+  z-index: 10;
 }
-
 nav.shift ul li a:hover {
   color: lightsalmon;
 }
-
 nav.shift ul li a:after {
   display: block;
   position: absolute;
@@ -100,9 +96,8 @@ nav.shift ul li a:after {
   background: lightgoldenrodyellow;
   visibility: none;
   opacity: 0;
-  z-index: 1;
+  z-index: 10;
 }
-
 nav.shift ul li a:hover:after {
   opacity: 1;
   visibility: visible;

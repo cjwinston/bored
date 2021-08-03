@@ -42,9 +42,3 @@ def createTrivia(r):
         questionNum += 1
     return questionsDict
 
-
-r = getData('5', '26', '0', 'multiple')
-print(r)
-dict = createTrivia(r)
-print(dict)
-

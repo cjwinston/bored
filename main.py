@@ -23,7 +23,6 @@ tmdb_base_url = 'https://api.themoviedb.org/3/'
 
 # this gets the name of the file so Flask knows it's name
 app = Flask(__name__)
-# login = LoginManager(app)
 proxied = FlaskBehindProxy(app)
 app.config['SECRET_KEY'] = 'c3eec5c8ffb8f4c3b45f24e2b11bf875'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -66,33 +65,24 @@ def trivia():
         category = form.category.data
         difficulty = form.difficulty.data
         types = form.types.data
-        global r
         r = getData(number, category, difficulty, types)
+        global d
         d = createTrivia(r)
-        # correctly takes in input for if all sections have data, have not
-        # tested for 'Any' option
         return render_template('triviaQues.html', subtitle='Questions', data=d)
     return render_template('trivia.html', subtitle='Trivia Page',
                            form=form)
 
 
-@app.route("/triviaQues", methods=['GET', 'POST'])
+@app.route("/triviaAns", methods=['GET','POST'])
 @login_required
-def trivia_questions():
-    if request.method == 'POST':
-        global option
-        option = request.form['options']
-        print(option)
-        return render_template('trivia-ans.html')
-    # return render_template('trivia-ans', option = option)
-
-
-@app.route("/trivia-ans", methods=['GET', 'POST'])
-@login_required
-def trivia_ans():
-        #option = option
-        #print(option)
-        return render_template('trivia-ans.html')
+def triviaAns():
+    correct = 0
+    i = 0
+    for i in d.keys():
+        answered = request.form.get(i)
+        if d[i]['correct answer'] == answered:
+            correct = correct+1
+    return render_template('triviaAns.html', correct = str(correct))
 
 
 @app.route("/events", methods=['GET', 'POST'])
@@ -138,7 +128,6 @@ def login():
 @login_required
 def logout():
     logout_user()
-    # session.pop('logged_in', None)
     flash(f'Sucessfully Logged Out', 'success')
     return redirect(url_for('login'))
 
@@ -180,6 +169,12 @@ def movietv():
 @login_required
 def watch():
     return render_template('watchResults.html')
+
+
+@app.route("/dog", methods=['GET', 'POST'])
+@login_required
+def dog():
+    return render_template('dog.html')
 
 
 # this should always be at the end

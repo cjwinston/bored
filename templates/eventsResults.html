@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
-<h2>{{ subtitle }}</h2>
-    <p>{{ text }}</p>
+<!-- <h2>{{ subtitle }}</h2>
+    <p>{{ text }}</p> -->
 <div class="card-columns">
     {% for key in data %}
         <div class="card w-80">
-            <img src={{data[key]['image']}} class="card-img-top" alt="Event">
+            <img src="{{data[key]['image']}}" class="card-img-top" alt="Event">
             <h5 class="card-title">{{data[key]['name']}}</h5>
             <p class="card-text">Date: {{data[key]['date']}}</p>
-            <a href={{data[key]['url']}} target="_blank" class="card-link">More Info</a>
+            <a href="{{data[key]['url']}}" target="_blank" class="card-link">More Info</a>
         </div>
     {% endfor %}
 </div>

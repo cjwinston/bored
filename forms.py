@@ -38,8 +38,7 @@ class TriviaForm(FlaskForm):
                 max=10,
                 message='Please select between 1-10')])
     category = SelectField('Select Category',
-                           choices=[(0, 'Any'),
-                                    (9, 'General Knowledge'),
+                           choices=[(9, 'General Knowledge'),
                                     (10, 'Entertainment: Books'),
                                     (11, 'Entertainment: Film'),
                                     (12, 'Entertainment: Music'),
@@ -56,12 +55,10 @@ class TriviaForm(FlaskForm):
                                     (25, 'Art'), (26, 'Celebrities'),
                                     (27, 'Animals')])
     difficulty = SelectField('Select Difficulty',
-                             choices=[(0, 'Any'),
-                                      ('easy', 'Easy'), ('medium', 'Medium'),
+                             choices=[('easy', 'Easy'), ('medium', 'Medium'),
                                       ('hard', 'Hard')])
     types = SelectField('Select Question Type',
-                        choices=[(0, 'Any'),
-                                 ('multiple', 'Multiple Choice'),
+                        choices=[('multiple', 'Multiple Choice'),
                                  ('boolean', 'True or False')])
     submit = SubmitField('Submit')
 
