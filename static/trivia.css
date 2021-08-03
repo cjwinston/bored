@@ -1,3 +1,5 @@
+
+
 .organization-trivia-card {
     border-radius: 2px;
     padding: 10px;
@@ -13,6 +15,7 @@
     margin-right: 50px;
     margin: auto;
     margin-bottom: 30px;
+    
 }
 
 .button {
@@ -29,6 +32,18 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
+
+ input[type=radio]{
+     display:block;
+     margin-left:80px;
+     vertical-align:middle;
+    }
+
+label {
+    float:left;
+      display: block;
+    }
+
 
 input[type=submit] {
   display: inline-block;

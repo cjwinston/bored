@@ -4,6 +4,7 @@ body {
   height: 3000px; /* Used to enable scrolling */
   background-image: linear-gradient(lightgoldenrodyellow, lightsalmon);
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,7 +61,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: larger;
 }
 

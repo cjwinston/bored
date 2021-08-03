@@ -77,12 +77,16 @@ def trivia():
 @login_required
 def triviaAns():
     correct = 0
-    i = 0
+    data = request.form
     for i in d.keys():
-        answered = request.form.get(i)
+        answered = data[str(i)]
+        print("i = ", i)
+        print("answered = ", answered)
+        print("correct answer = ", d[i]['correct answer'])
         if d[i]['correct answer'] == answered:
-            correct = correct+1
-    return render_template('triviaAns.html', correct = str(correct))
+            correct +=1
+            print("correct = ", correct)
+    return render_template('triviaAns.html', correct = str(correct), dic = dic)
 
 
 @app.route("/events", methods=['GET', 'POST'])
@@ -169,12 +173,6 @@ def movietv():
 @login_required
 def watch():
     return render_template('watchResults.html')
-
-
-@app.route("/dog", methods=['GET', 'POST'])
-@login_required
-def dog():
-    return render_template('dog.html')
 
 
 # this should always be at the end

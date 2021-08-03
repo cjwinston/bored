@@ -7,22 +7,20 @@
 <form action="/triviaAns" method ="POST">
     {%for key in data%}
     <div class="organization-trivia-card">
-            <h3>{{data[key]['question']}}</h3>
+            <h3>{{data[key]['question']}}</h3><br/>
             {% if data[key]['type'] == 'multiple' %}
-        
-                <label for="1">
+                <label for="1" class="radio-inline">
                 <input type="radio" id = "1" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
-                {{data[key]['options'][0]}}</label><br>
-  
-                <label for="2">
+                {{data[key]['options'][0]}}</label>
+                
                 <input type="radio" id = "2" value="{{data[key]['options'][1]}}" name="{{key}}" required/>
-                {{data[key]['options'][1]}}</label><br>
-                <label for="3">
+               <label for="2"> {{data[key]['options'][1]}}</label>
+                
                 <input type="radio" id = "3" value="{{data[key]['options'][2]}}" name="{{key}}" required/>
-                {{data[key]['options'][2]}}</label><br>
-                <label for="4">
+                <label for="3">{{data[key]['options'][2]}}</label>
+                
                 <input type="radio" id = "4" value="{{data[key]['options'][3]}}" name="{{key}}" required/>
-                {{data[key]['options'][3]}}</label><br>
+                <label for="4">{{data[key]['options'][3]}}</label>
             {% else %}
                 <label for="True">
                 <input type="radio" id = "True" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
