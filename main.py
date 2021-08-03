@@ -80,13 +80,9 @@ def triviaAns():
     data = request.form
     for i in d.keys():
         answered = data[str(i)]
-        print("i = ", i)
-        print("answered = ", answered)
-        print("correct answer = ", d[i]['correct answer'])
         if d[i]['correct answer'] == answered:
             correct +=1
-            print("correct = ", correct)
-    return render_template('triviaAns.html', correct = str(correct), dic = dic)
+    return render_template('triviaAns.html', correct = str(correct))
 
 
 @app.route("/events", methods=['GET', 'POST'])

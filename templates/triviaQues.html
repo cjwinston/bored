@@ -8,28 +8,33 @@
     {%for key in data%}
     <div class="organization-trivia-card">
             <h3>{{data[key]['question']}}</h3><br/>
+        
             {% if data[key]['type'] == 'multiple' %}
-                <label for="1" class="radio-inline">
-                <input type="radio" id = "1" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
-                {{data[key]['options'][0]}}</label>
-                
-                <input type="radio" id = "2" value="{{data[key]['options'][1]}}" name="{{key}}" required/>
-               <label for="2"> {{data[key]['options'][1]}}</label>
-                
-                <input type="radio" id = "3" value="{{data[key]['options'][2]}}" name="{{key}}" required/>
-                <label for="3">{{data[key]['options'][2]}}</label>
-                
-                <input type="radio" id = "4" value="{{data[key]['options'][3]}}" name="{{key}}" required/>
-                <label for="4">{{data[key]['options'][3]}}</label>
+        <label for="1" class="Radio">
+                <input type="radio" id = "1" value="{{data[key]['options'][0]}}" name="{{key}}" style="margin-right: 20px" required/>
+                {{data[key]['options'][0]}}<br/></label>
+        
+        <label for="2" class="Radio">
+               <input type="radio" id = "2" value="{{data[key]['options'][1]}}" name="{{key}}" style="margin-right: 20px" required/>
+               {{data[key]['options'][1]}}<br/></label>
+        
+        <label for="3" class="Radio">
+                <input type="radio" id = "3" value="{{data[key]['options'][2]}}" name="{{key}}" style="margin-right: 20px" required/>
+                {{data[key]['options'][2]}}<br/></label>
+        
+        <label for="4" class="Radio">
+                <input type="radio" id = "4" value="{{data[key]['options'][3]}}" name="{{key}}" style="margin-right: 20px" required/>
+            {{data[key]['options'][3]}}<br/></label>
             {% else %}
-                <label for="True">
-                <input type="radio" id = "True" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
-                True</label><br>
-                <label for="False">
-                <input type="radio" id = "False" value="{{data[key]['options'][1]}}" name="{{key}}" required/>
-                False</label><br>
-            {% endif %} 
-         </div>
+        <label for="True" class="Radio">
+                <input type="radio" id = "True" value="{{data[key]['options'][0]}}" name="{{key}}" style="margin-right: 20px" required/>
+                True<br/></label>
+        
+        <label for="False" class="Radio">
+                <input type="radio" id = "False" value="{{data[key]['options'][1]}}" name="{{key}}" style="margin-right: 20px" required/>
+                False<br/></label>
+            {% endif %}
+            </div>
     {%endfor%}
     <div class="form-group">
         <input type="submit" value="Submit"/>

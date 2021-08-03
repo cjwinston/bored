@@ -33,16 +33,12 @@
   box-shadow: 0 9px #999;
 }
 
- input[type=radio]{
-     display:block;
-     margin-left:80px;
-     vertical-align:middle;
-    }
-
-label {
-    float:left;
-      display: block;
-    }
+.Radio {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 100px;
+    margin-left:50px;
+}
 
 
 input[type=submit] {
