@@ -22,10 +22,10 @@ class LoginForm(FlaskForm):
 
 class EventForm(FlaskForm):
     eventType = SelectField('Enter the type of event',
-                            choices = [('music', 'Concerts'),
-                                       ('sports', 'Sports'),
-                                       ('theatre', 'Theater'),
-                                       ('comedy', 'Comedy')])
+                            choices=[('music', 'Concerts'),
+                                     ('sports', 'Sports'),
+                                     ('theatre', 'Theater'),
+                                     ('comedy', 'Comedy')])
     city = StringField('Enter the City', validators=[DataRequired()])
     search = SubmitField('Search')
 
@@ -71,4 +71,3 @@ class WatchForm(FlaskForm):
         "Do you want today's trending list or this week's?", choices=[
             ('day', 'Today'), ('week', 'This Week')])
     submit = SubmitField('View Titles')
-    
