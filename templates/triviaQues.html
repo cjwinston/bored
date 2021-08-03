@@ -9,9 +9,11 @@
     <div class="organization-trivia-card">
             <h3>{{data[key]['question']}}</h3>
             {% if data[key]['type'] == 'multiple' %}
+        
                 <label for="1">
                 <input type="radio" id = "1" value="{{data[key]['options'][0]}}" name="{{key}}" required/>
                 {{data[key]['options'][0]}}</label><br>
+  
                 <label for="2">
                 <input type="radio" id = "2" value="{{data[key]['options'][1]}}" name="{{key}}" required/>
                 {{data[key]['options'][1]}}</label><br>
