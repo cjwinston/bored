@@ -73,7 +73,7 @@ def trivia():
                            form=form)
 
 
-@app.route("/triviaAns", methods=['GET','POST'])
+@app.route("/triviaAns", methods=['GET', 'POST'])
 @login_required
 def triviaAns():
     correct = 0
@@ -81,8 +81,8 @@ def triviaAns():
     for i in d.keys():
         answered = data[str(i)]
         if d[i]['correct answer'] == answered:
-            correct +=1
-    return render_template('triviaAns.html', correct = str(correct))
+            correct += 1
+    return render_template('triviaAns.html', correct=str(correct))
 
 
 @app.route("/events", methods=['GET', 'POST'])

@@ -9,7 +9,7 @@
         text-align: center;
     }
         .forms{
-            /*background-color:lightgoldenrodyellow*/;
+            background-color:white;
             display: flex;
             justify-content: center;
         }
@@ -20,9 +20,8 @@
 </head>
 <section class="trivia">
 <div class = "title">
-    <h1>Trivia!</h1>
     <div class="subtitle">
-    <h3>Ready to sharpen your mind? Or do you want to learn something new today?</h3>
+    <h1>Ready to sharpen your mind?</h1>
         <br/>
     <h6>Choose a catergory and start playing!</h6>
         <br/>
@@ -36,6 +35,7 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
         <div class="form-group">
+            <br/>
                 {{ form.number_of_questions.label(class="form-control-label") }}
                 {% if form.number_of_questions.errors %}
                     {{ form.number_of_questions(class="form-control form-control-lg is-invalid") }}

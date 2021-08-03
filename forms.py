@@ -23,7 +23,7 @@ class LoginForm(FlaskForm):
 class EventForm(FlaskForm):
     eventType = SelectField('Enter the type of event',
                             choices = [('music', 'Concerts'),
-                                        ('sports', 'Sports'),
+                                       ('sports', 'Sports'),
                                        ('theatre', 'Theater'),
                                        ('comedy', 'Comedy')])
     city = StringField('Enter the City', validators=[DataRequired()])
