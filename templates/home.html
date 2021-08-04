@@ -38,7 +38,7 @@
 <body>
     <nav class="shift" >
         <ul>
-            <li><a href="/"><h1 style="color: white">Bored</h1></a></li>
+            <li><a href="/"  ><h1>Bored</h1></a></li>
           {% if current_user.is_authenticated %}
 
             <div class="nav-right">
@@ -49,8 +49,8 @@
             </div>
           {% else %}
             <div class="nav-right">
-              <li><a href="/signup">Signup</a></li>
-              <li><a href="/login">Login</a></li>
+              <a href="/signup"><button class="nav-butt">Signup</button></a>
+              <a href="/login"><button class="nav-butt">Login</button></a>
             </div>
           {% endif %}
         </ul>
@@ -124,7 +124,7 @@
         </li>
         <li class="anim5">
           <div class="quote">"My friends and I never run out of things to do thanks to this app"</div>
-          <div class="source">- Nam</div>
+          <div class="source">- Nae</div>
         </li>
       </ul>
     </div>

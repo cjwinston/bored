@@ -2,7 +2,14 @@
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
-
-<h1>Correct Answers: <u>{{correct}}</u></h1>
+<div class="content-section">
+    <h1>Score: {{correct}}/{{total}}</h1>
+    {%for keys in questions%}
+        <h5>{{keys}}: {{questions[keys]}}</h5>
+    {%endfor%}
+        <p>Want to take anoher quiz? 
+            <a href="/trivia" >Click Here</a>
+        </p>
+</div>
 
 {% endblock content %}

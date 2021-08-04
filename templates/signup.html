@@ -1,7 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
-    <div class="content-section">
+ <head>
+    <style>
+        body{
+           font-family: 'Montserrat', sans-serif;
+        }
+    .trivia{
+        text-align: center;
+    }
+        .forms{
+            background-color:#FFA366;
+            display: flex;
+            justify-content: center;
+            width=80em;
+            border-radius: 25px;
+        }
+        .subtitle{
+        text-align: center;
+        }
+        a{
+          color: #6FA6F6;
+        }
+</style>
+</head>
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
@@ -11,8 +32,11 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-        <h1> Sign Up</h1>
-        <form method="POST" action="">
+        
+   <section>
+   <div class="forms">
+        <form method="POST" action="" style=" margin:35px">
+            <h1 style="center">Sign Up</h1>
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <div class="form-group">
@@ -58,13 +82,5 @@
             </fieldset>
         </form>
     </div>
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-       <div class="alert alert-{{ category }}">
-         {{ message }}
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
+   </section>
 {% endblock content %}

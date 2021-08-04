@@ -27,7 +27,7 @@ h2, h3, h4, h5, h6 {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: black;
+  background-color: #9CC4FE;
   border: none;
   border-radius: 15px;
     /*additional styling*/
@@ -36,7 +36,7 @@ h2, h3, h4, h5, h6 {
     margin-right: 1em;
 }
 .nav-butt:hover {
-  background-color: lightsalmon; /*  */
+  background-color: #6FA6F6; /*  */
   color: white;
 }
 
@@ -49,17 +49,17 @@ h2, h3, h4, h5, h6 {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: lightsalmon;
+  background-color: #9CC4FE;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
     margin-bottom: 100px;
 }
 
-.button:hover {background-color: lightsalmon}
+.button:hover {background-color: #6FA6F6}
 
 .button:active {
-  background-color: lightsalmon;
+  background-color: #9CC4FE;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
@@ -212,7 +212,7 @@ form.example button {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #2196F3;
+  background: #9CC4FE;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -221,7 +221,7 @@ form.example button {
 }
 
 form.example button:hover {
-  background: #0b7dda;
+  background: #9CC4FE;
 }
 
 /* Clear floats */
@@ -234,4 +234,16 @@ form.example::after {
 .content {
   max-width: 500px;
   margin: auto;
+}
+
+.btn {
+    color: #fafafa;
+    background-color: #9CC4FE;
+    border-color: #9CC4FE
+}
+
+.btn-outline-primary:hover {
+    border-color: #6FA6F6;
+    background-color: #6FA6F6;
+    color: #fafafa;
 }

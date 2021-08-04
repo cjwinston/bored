@@ -1,4 +1,4 @@
-.organization-card {
+/* .grid-container {
     border-radius: 2px;
     padding: 10px;
     margin: 1rem;
@@ -8,5 +8,35 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     display: block;
     background: #fff;
+    text-align: center;
+} */
+
+.card-deck {
+    width: 800px;
+    height: 300px;
+    z-index: -5;
+}
+
+.card{
+    width: 800px;
+    height: 450px;
+    margin-bottom: 1000px
+    z-index: 1;
+}
+
+
+.grid-container {
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.grid-child{
+  margin-top: 1em;
+  color: black;
+}
+
+h2{        
     text-align: center;
 }

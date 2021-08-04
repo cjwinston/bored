@@ -1,10 +1,15 @@
-.card-columns {
-    max-width: 500px;
+.card-deck {
+    width: 800px;
+    height: 300px;
     z-index: -5;
+    margin: 100px;
+   
 }
 
 .card{
-    max-width: 500px;
+    width: 800px;
+    height: 450px;
+    margin-bottom: 1000px;
     z-index: 1;
 }
 
@@ -12,6 +17,20 @@
     color: lightsalmon;
     z-index: 10;
 }
+
+
+.grid-container {
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.grid-child{
+  margin-top: 1em;
+  color: black;
+}
+
 /* .organization-card {
     border-radius: 2px;
     padding: 10px;

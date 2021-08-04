@@ -3,11 +3,13 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='watchResults.css') }}">
 <h2>{{ subtitle }}</h2>
     <p>{{ text }}</p>
+<div class="card-columns">
     {%for key in data%}
-        <div class="organization-card">
+        <div class="card w-80">
             <h3>{{data[key]['name']}}</h3>
             <img src={{data[key]['image_url']}} alt='Title' class='card-img'>
             <p>{{data[key]['overview']}} </p>
           </div>
     {%endfor%}
+</div>
 {% endblock content %}

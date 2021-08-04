@@ -1,9 +1,61 @@
-{% extends "layout.html" %}
-{% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
-<!-- <h2>{{ subtitle }}</h2>
-    <p>{{ text }}</p> -->
-<div class="card-columns">
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+    <head>
+        <title>Bored</title>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mains.css') }}">
+         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
+    <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+    </style>
+    </head>
+        <body>
+                <nav class="shift" >
+        <ul>
+            <li><a href="/"><h1 style="color: white">Bored</h1></a></li>
+          {% if current_user.is_authenticated %}
+
+            <div class="nav-right">
+            <li><a href="/events">Search Events</a></li>
+              <li><a href="/trivia">Trivia</a></li>
+              <li><a href="/movietv">Watch Recommendations</a></li>
+              <a onclick="alert('goodbye! :D');" href="/logout"><button class="nav-butt">Logout</button></a>
+            </div>
+          {% else %}
+            <div class="nav-right">
+              <li><a href="/signup">Signup</a></li>
+              <li><a href="/login">Login</a></li>
+            </div>
+          {% endif %}
+        </ul>
+    </nav>
+      
+       <div class="card-columns">
     {% for key in data %}
         <div class="card w-80">
             <img src="{{data[key]['image']}}" class="card-img-top" alt="Event">
@@ -12,5 +64,6 @@
             <a href="{{data[key]['url']}}" target="_blank" class="card-link">More Info</a>
         </div>
     {% endfor %}
-</div>
-{% endblock content %}
+</div>     
+                     
+        </body>

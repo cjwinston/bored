@@ -25,16 +25,16 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: lightsalmon;
+  background-color: #9CC4FE;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: lightsalmon}
+.button:hover {background-color: #9CC4FE}
 
 .button:active {
-  background-color: lightsalmon;
+  background-color: #9CC4FE;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
@@ -112,9 +112,9 @@ nav.shift ul li a:hover:after {
 
 .content-section {
   background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
+  /*padding: 10px 20px;*/
+  /*border: 1px solid #dddddd;*/
+  /*border-radius: 3px;*/
   margin-bottom: 20px;
 }
 

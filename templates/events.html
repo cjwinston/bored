@@ -9,19 +9,26 @@
         text-align: center;
     }
         .forms{
-            width: 50em;
-            background-color:red;
+            background-color:#FFA366;
             display: flex;
             justify-content: center;
-            margin-right: 100px;
+            width=80em;
+            border-radius: 25px;
         }
         .subtitle{
         text-align: center;
         }
 </style>
 </head>
+<section class="events">
+<div class = "title">
+    <div class="subtitle">
+    <h1>Find an Event near you and have Fun this Weekend!</h1>
+</div>
+    </div>
+</section>
 
-   <section>
+<section>
    <div class="forms">
         <form method="POST" action="" style=" margin:35px">
             {{ form.hidden_tag() }}
@@ -58,5 +65,5 @@
           </div>
          </form>
    </div>
-   </section>
+</section>
 {% endblock content %}

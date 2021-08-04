@@ -10,17 +10,18 @@ def getEventData(keyword, city):
     api_key = 'dJICZjQMWJ6ZyTe9gXaTuTqQGETOqQOT'
     base_url = 'https://app.ticketmaster.com/discovery/v2/events'
     url = base_url + '?apikey=' + api_key + '&keyword=' + \
-        keyword + '&locale=*&page=1&city=' + city
+        keyword + '&locale=*&sort=date,asc&page=1&city=' + city
     response = requests.get(url)
     r = response.json()
     return r
 
 
-def main():
-    keyword = 'music'
-    city = 'atlanta'
-    d = getEventData(keyword, city)
-    createDict(d)
+"""def main():
+    keyword = 'theatre'
+    city = 'New York'
+    data1= getEventData(keyword, city)
+    diction1=createDict(data1)
+    print(diction1)"""
 
 
 def createDict(response):
@@ -31,3 +32,6 @@ def createDict(response):
                                       'image': embedded['images'][0]['url'],
                                       'date': embedded['dates']['start']['localDate']}
     return eventsDict
+
+#if __name__ == '__main__':
+    #main()

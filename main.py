@@ -77,12 +77,18 @@ def trivia():
 @login_required
 def triviaAns():
     correct = 0
+    total = 0
+    questions = {}
     data = request.form
     for i in d.keys():
         answered = data[str(i)]
         if d[i]['correct answer'] == answered:
             correct += 1
-    return render_template('triviaAns.html', correct=str(correct))
+            questions[i] = "Correct"
+        else:
+            questions[i] = "Incorrect"
+        total += 1
+    return render_template('triviaAns.html', correct=str(correct), questions=questions, total=total )
 
 
 @app.route("/events", methods=['GET', 'POST'])
@@ -145,7 +151,7 @@ def signup():
             db.session.add(newUser)
             db.session.commit()
             flash(f'Account created for {form.email.data}!', 'success')
-            return redirect(url_for('search'))
+            return redirect(url_for('events'))
     return render_template('signup.html', title='Sign Up', form=form)
 
 
@@ -173,4 +179,4 @@ def watch():
 
 # this should always be at the end
 if __name__ == '__main__':
-    app.run(debug=True, host="127.0.0.1", use_reloader=False)
+    app.run(debug=True, host="0.0.0.0", use_reloader=False)

@@ -1,5 +1,3 @@
-.forms{
-}
 
 .organization-trivia-card {
     border-radius: 2px;
@@ -28,7 +26,7 @@
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: lightsalmon;
+  background-color: #FF944D;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;

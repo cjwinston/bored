@@ -7,8 +7,8 @@ from wtforms.validators import NumberRange
 
 class RegistrationForm(FlaskForm):
     email = StringField('Email',
-                        validators=[DataRequired(), Email()], render_kw={'style': 'width: 50ch'})
-    password = PasswordField('Password', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
+                        validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(),
                                                  EqualTo('password')])
@@ -16,8 +16,8 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()], render_kw={'style': 'width: 50ch'})
-    password = PasswordField('Password', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
 
@@ -27,7 +27,7 @@ class EventForm(FlaskForm):
                                      ('sports', 'Sports'),
                                      ('theatre', 'Theater'),
                                      ('comedy', 'Comedy')])
-    city = StringField('Enter the City', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
+    city = StringField('Enter the City', validators=[DataRequired()])
     search = SubmitField('Search')
 
 
@@ -40,7 +40,8 @@ class TriviaForm(FlaskForm):
                 max=10,
                 message='Please select between 1-10')])
     category = SelectField('Select Category',
-                           choices=[(9, 'General Knowledge'),
+                           choices=[(0, 'Any'),
+                                    (9, 'General Knowledge'),
                                     (10, 'Entertainment: Books'),
                                     (11, 'Entertainment: Film'),
                                     (12, 'Entertainment: Music'),
@@ -57,11 +58,14 @@ class TriviaForm(FlaskForm):
                                     (25, 'Art'), (26, 'Celebrities'),
                                     (27, 'Animals')])
     difficulty = SelectField('Select Difficulty',
-                             choices=[('easy', 'Easy'), ('medium', 'Medium'),
+                             choices=[('0', 'Mixed Difficulty'), 
+                                      ('easy', 'Easy'), 
+                                      ('medium', 'Medium'),
                                       ('hard', 'Hard')])
     types = SelectField('Select Question Type',
                         choices=[('multiple', 'Multiple Choice'),
-                                 ('boolean', 'True or False')])
+                                 ('boolean', 'True or False'),
+                                 ('0', 'Both')])
     submit = SubmitField('Submit')
 
 
