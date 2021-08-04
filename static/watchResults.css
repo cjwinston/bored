@@ -11,25 +11,20 @@
     text-align: center;
 } */
 
-.card-deck {
-    width: 300px;
-    height: 300px;
+/* .card-deck {
+    width: auto;
+    height: auto;
     z-index: -5;
     margin: 100px;
    
 }
 
 .card{
-    width: 300px;
-    height: 300px;
+    width: auto;
+    height: auto;
     margin-bottom: 1000px;
     z-index: 1;
-}
-
-img.card-img {
-    width: 345px
-    height: 300px
-}
+} */
 
 .grid-container {
     margin-left: 50px;

@@ -273,6 +273,7 @@ form.example::after {
 .container {
     width: 80%;
     margin: auto;
+    justify-content: center;
 }
 
 .counter-container {
