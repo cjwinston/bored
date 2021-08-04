@@ -1,15 +1,38 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='eventsResults.css') }}">
+<head>
+    <style>
+        body{
+           font-family: 'Montserrat', sans-serif;
+        }
+    .trivia{
+        text-align: center;
+    }
+        .forms{
+            background-color:#FFA366;
+            display: flex;
+            justify-content: center;
+            border-radius: 25px;
+        }
+        .subtitle{        
+        text-align: center;
+        }
+</style>
+</head>
+
+<section>
+    <div class="forms">
 <div class="content-section">
     <h1>Score: {{correct}}/{{total}}</h1>
     {%for keys in questions%}
         <h5>{{keys}}: {{questions[keys]}}</h5>
     {%endfor%}
-        <p>Want to take anoher quiz? 
+        <p>Want to take another quiz? 
             <a href="/trivia" >Click Here</a>
         </p>
 </div>
+    </div>
+</section>
 
 {% endblock content %}
