@@ -2,23 +2,6 @@
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='trivia.css') }}">
-<style>
-      input[type=submit] {
-        display: inline-block;
-          padding: 15px 25px;
-          font-size: 24px;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          outline: none;
-          color: #fff;
-          background-color: #9CC4FE;
-          border: none;
-          border-radius: 15px;
-          box-shadow: 0 9px #999;
-            margin-bottom: 100px;
-      }
-</style>
 <h2>{{ subtitle }}</h2>
     <p>{{ text }}</p> 
 <form action="/triviaAns" method ="POST">
@@ -54,7 +37,7 @@
             </div>
     {%endfor%}
     <div class="form-group" style="justify-content:center">
-        <input type="submit" value="Submit" style="margin-left: auto;margin-right: auto;"/>
+        <input type="submit" value="Submit"/>
           </div>
     
  </form>

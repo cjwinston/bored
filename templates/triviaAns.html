@@ -27,6 +27,8 @@
     <h1>Score: {{correct}}/{{total}}</h1>
     {%for keys in questions%}
         <h5>{{keys}}: {{questions[keys]}}</h5>
+            <p>Question: {{data[keys]['question']}}</p>
+            <p>Correct Answer: {{data[keys]['correct answer']}}</p>
     {%endfor%}
         <p>Want to take another quiz? 
             <a href="/trivia" >Click Here</a>

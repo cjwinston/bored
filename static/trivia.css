@@ -50,10 +50,11 @@ input[type=submit] {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: lightsalmon;
+  background-color: #9CC4FE;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  margin-bottom: 100px;
 }
 
 /*.radio {

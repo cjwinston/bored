@@ -58,8 +58,8 @@ class TriviaForm(FlaskForm):
                                     (25, 'Art'), (26, 'Celebrities'),
                                     (27, 'Animals')])
     difficulty = SelectField('Select Difficulty',
-                             choices=[('0', 'Mixed Difficulty'), 
-                                      ('easy', 'Easy'), 
+                             choices=[('0', 'Mixed Difficulty'),
+                                      ('easy', 'Easy'),
                                       ('medium', 'Medium'),
                                       ('hard', 'Hard')])
     types = SelectField('Select Question Type',

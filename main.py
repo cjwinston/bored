@@ -88,7 +88,12 @@ def triviaAns():
         else:
             questions[i] = "Incorrect"
         total += 1
-    return render_template('triviaAns.html', correct=str(correct), questions=questions, total=total )
+    return render_template(
+        'triviaAns.html',
+        correct=str(correct),
+        questions=questions,
+        total=total,
+        data=d)
 
 
 @app.route("/events", methods=['GET', 'POST'])

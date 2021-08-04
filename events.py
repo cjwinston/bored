@@ -32,6 +32,3 @@ def createDict(response):
                                       'image': embedded['images'][0]['url'],
                                       'date': embedded['dates']['start']['localDate']}
     return eventsDict
-
-#if __name__ == '__main__':
-    #main()
