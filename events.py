@@ -16,19 +16,12 @@ def getEventData(keyword, city):
     return r
 
 
-"""def main():
-    keyword = 'theatre'
-    city = 'New York'
-    data1= getEventData(keyword, city)
-    diction1=createDict(data1)
-    print(diction1)"""
-
-
 def createDict(response):
     eventsDict = {}
+    key = 'localDate'
     for embedded in response['_embedded']['events']:
         eventsDict[embedded['id']] = {'name': embedded['name'],
                                       'url': embedded['url'],
                                       'image': embedded['images'][0]['url'],
-                                      'date': embedded['dates']['start']['localDate']}
+                                      'date': embedded['dates']['start'][key]}
     return eventsDict
