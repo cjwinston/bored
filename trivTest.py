@@ -40,3 +40,6 @@ def createTrivia(r):
                 'options': options}
         questionNum += 1
     return questionsDict
+
+r = getData('10', '26', 'hard', '0' )
+print(r['response_code'])

@@ -66,9 +66,13 @@ def trivia():
         difficulty = form.difficulty.data
         types = form.types.data
         r = getData(number, category, difficulty, types)
-        global d
-        d = createTrivia(r)
-        return render_template('triviaQues.html', subtitle='Questions', data=d)
+        if r['response_code'] == 1:
+            return render_template('trivia.html', subtitle='Trivia Page',
+                           form=form)
+        else:
+            global d
+            d = createTrivia(r)
+            return render_template('triviaQues.html', subtitle='Questions', data=d)
     return render_template('trivia.html', subtitle='Trivia Page',
                            form=form)
 
