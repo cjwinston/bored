@@ -7,8 +7,8 @@ from wtforms.validators import NumberRange
 
 class RegistrationForm(FlaskForm):
     email = StringField('Email',
-                        validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+                        validators=[DataRequired(), Email()], render_kw={'style': 'width: 50ch'})
+    password = PasswordField('Password', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(),
                                                  EqualTo('password')])
@@ -16,8 +16,8 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()], render_kw={'style': 'width: 50ch'})
+    password = PasswordField('Password', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
     submit = SubmitField('Sign In')
 
 
@@ -27,7 +27,7 @@ class EventForm(FlaskForm):
                                      ('sports', 'Sports'),
                                      ('theatre', 'Theater'),
                                      ('comedy', 'Comedy')])
-    city = StringField('Enter the City', validators=[DataRequired()])
+    city = StringField('Enter the City', validators=[DataRequired()], render_kw={'style': 'width: 50ch'})
     search = SubmitField('Search')
 
 

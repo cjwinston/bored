@@ -1,7 +1,29 @@
 {% extends "layout.html" %}
 {% block content %}
-   <div class="content-section">
-        <form method="POST" action="">
+<head>
+    <style>
+        body{
+           font-family: 'Montserrat', sans-serif;
+        }
+    .trivia{
+        text-align: center;
+    }
+        .forms{
+            width: 50em;
+            background-color:red;
+            display: flex;
+            justify-content: center;
+            margin-right: 100px;
+        }
+        .subtitle{
+        text-align: center;
+        }
+</style>
+</head>
+
+   <section>
+   <div class="forms">
+        <form method="POST" action="" style=" margin:35px">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
     <div class="form-group">
@@ -35,5 +57,6 @@
              {{ form.search(class="button") }}
           </div>
          </form>
-     </div>
- {% endblock content %}
+   </div>
+   </section>
+{% endblock content %}
